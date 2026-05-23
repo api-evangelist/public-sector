@@ -1,0 +1,141 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/public-sector/json-schema/public-sector-dataset-schema.json",
+  "title": "PublicSectorDataset",
+  "description": "A government-published dataset record. Aligns with the DCAT-US 1.1 metadata schema used by data.gov and the schema.org/Dataset profile. Designed to round-trip with CKAN packages returned from catalog.data.gov/api/3/action/package_show and with SODA dataset metadata from Socrata.",
+  "type": "object",
+  "required": ["identifier", "title", "publisher", "accessLevel", "modified"],
+  "properties": {
+    "identifier": {
+      "type": "string",
+      "description": "Stable identifier — preferably a URI or a UUID minted by the publisher. CKAN datasets expose an 'id' (UUID) and a 'name' (slug); use the UUID."
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Human-readable dataset title."
+    },
+    "description": {
+      "type": "string",
+      "description": "Free-text description of the dataset's contents, scope, and intended use."
+    },
+    "keyword": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Tags / keywords describing the dataset."
+    },
+    "modified": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Most recent date the dataset was modified, RFC 3339."
+    },
+    "issued": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Date the dataset was first published."
+    },
+    "publisher": {
+      "type": "object",
+      "required": ["name"],
+      "description": "Agency that published the dataset.",
+      "properties": {
+        "name": { "type": "string" },
+        "url": { "type": "string", "format": "uri" },
+        "subOrganizationOf": { "type": "string" }
+      }
+    },
+    "contactPoint": {
+      "type": "object",
+      "description": "Contact for the dataset (dataset steward).",
+      "properties": {
+        "fn": { "type": "string", "description": "Full name." },
+        "hasEmail": { "type": "string", "description": "mailto: URI." }
+      }
+    },
+    "accessLevel": {
+      "type": "string",
+      "enum": ["public", "restricted public", "non-public"],
+      "description": "DCAT-US access level."
+    },
+    "rights": {
+      "type": "string",
+      "description": "Free-text explanation of rights and restrictions when accessLevel is not 'public'."
+    },
+    "license": {
+      "type": "string",
+      "description": "License URI (e.g. https://creativecommons.org/publicdomain/zero/1.0/, https://opendatacommons.org/licenses/odbl/1-0/, U.S. federal public domain)."
+    },
+    "theme": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Thematic categories (e.g. 'Public Safety', 'Transportation', 'Health', 'Climate', 'Education')."
+    },
+    "spatial": {
+      "type": "string",
+      "description": "Geographic coverage. May be a bounding box, a placename, an OCD-ID, or a GeoJSON geometry serialized as a string."
+    },
+    "temporal": {
+      "type": "string",
+      "description": "Temporal coverage as an ISO 8601 interval (e.g. '2010-01-01/2025-12-31')."
+    },
+    "accrualPeriodicity": {
+      "type": "string",
+      "description": "ISO 8601 duration or DCAT frequency code (e.g. 'R/P1D' for daily, 'R/P1Y' for annual)."
+    },
+    "landingPage": {
+      "type": "string",
+      "format": "uri",
+      "description": "Human-readable HTML landing page for the dataset."
+    },
+    "distribution": {
+      "type": "array",
+      "description": "Concrete distributions (downloads, API endpoints).",
+      "items": {
+        "type": "object",
+        "required": ["mediaType"],
+        "properties": {
+          "title": { "type": "string" },
+          "description": { "type": "string" },
+          "mediaType": {
+            "type": "string",
+            "description": "IANA media type (text/csv, application/json, application/geo+json, application/vnd.ms-excel, application/zip, application/x-shapefile, application/xml)."
+          },
+          "format": {
+            "type": "string",
+            "description": "Short format label (CSV, JSON, GeoJSON, Shapefile, XLSX, ZIP, XML, SODA, REST)."
+          },
+          "downloadURL": { "type": "string", "format": "uri" },
+          "accessURL": { "type": "string", "format": "uri" },
+          "byteSize": { "type": "integer", "minimum": 0 },
+          "describedBy": {
+            "type": "string",
+            "format": "uri",
+            "description": "URL of a JSON Schema or data dictionary for this distribution."
+          },
+          "describedByType": { "type": "string" },
+          "conformsTo": {
+            "type": "string",
+            "format": "uri",
+            "description": "Standard or profile the distribution conforms to (e.g. GTFS, NIEM, FHIR)."
+          }
+        }
+      }
+    },
+    "language": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "BCP 47 language tags."
+    },
+    "bureauCode": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "OMB Circular A-11 bureau code (federal only)."
+    },
+    "programCode": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "OMB Federal Program Inventory code."
+    }
+  },
+  "additionalProperties": true
+}

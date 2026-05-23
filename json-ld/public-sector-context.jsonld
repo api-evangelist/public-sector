@@ -1,0 +1,147 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "dct": "http://purl.org/dc/terms/",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "ocd": "https://opencivicdata.readthedocs.io/en/latest/vocab#",
+    "ps": "https://api-evangelist.github.io/public-sector/vocab#",
+    "apis": "http://apisjson.org/ns#",
+
+    "name": "schema:name",
+    "description": "schema:description",
+    "url": "schema:url",
+    "identifier": "dct:identifier",
+    "title": "dct:title",
+    "issued": { "@id": "dct:issued", "@type": "schema:DateTime" },
+    "modified": { "@id": "dct:modified", "@type": "schema:DateTime" },
+    "license": { "@id": "dct:license", "@type": "@id" },
+    "language": "dct:language",
+    "spatial": "dct:spatial",
+    "temporal": "dct:temporal",
+    "keyword": "dcat:keyword",
+    "theme": "dcat:theme",
+    "publisher": { "@id": "dct:publisher", "@type": "@id" },
+    "contactPoint": { "@id": "dcat:contactPoint", "@type": "@id" },
+
+    "PublicSectorAgency": {
+      "@id": "ps:Agency",
+      "@type": "@id",
+      "schema:subClassOf": "schema:GovernmentOrganization"
+    },
+    "PublicSectorDataset": {
+      "@id": "ps:Dataset",
+      "@type": "@id",
+      "schema:subClassOf": "dcat:Dataset"
+    },
+    "PublicSectorRegulation": {
+      "@id": "ps:Regulation",
+      "@type": "@id",
+      "schema:subClassOf": "schema:Legislation"
+    },
+    "Jurisdiction": {
+      "@id": "ocd:Jurisdiction",
+      "@type": "@id"
+    },
+    "Docket": {
+      "@id": "ps:Docket",
+      "@type": "@id"
+    },
+    "PublicComment": {
+      "@id": "ps:PublicComment",
+      "@type": "@id",
+      "schema:subClassOf": "schema:Comment"
+    },
+    "Distribution": {
+      "@id": "dcat:Distribution",
+      "@type": "@id"
+    },
+
+    "level": "ps:level",
+    "country": "ps:country",
+    "jurisdiction": { "@id": "ps:jurisdiction", "@type": "@id" },
+    "ocdId": "ps:ocdId",
+    "parentAgency": { "@id": "ps:parentAgency", "@type": "@id" },
+    "shortName": "ps:shortName",
+    "alternateNames": "schema:alternateName",
+    "mission": "schema:description",
+    "developerPortalUrl": { "@id": "ps:developerPortalUrl", "@type": "@id" },
+    "dataPortalUrl": { "@id": "ps:dataPortalUrl", "@type": "@id" },
+    "foiaUrl": { "@id": "ps:foiaUrl", "@type": "@id" },
+    "apis": "ps:apis",
+    "githubOrg": { "@id": "ps:githubOrg", "@type": "@id" },
+    "statutoryAuthority": "ps:statutoryAuthority",
+
+    "accessLevel": "ps:accessLevel",
+    "rights": "dct:rights",
+    "accrualPeriodicity": "dct:accrualPeriodicity",
+    "landingPage": { "@id": "dcat:landingPage", "@type": "@id" },
+    "distribution": "dcat:distribution",
+    "mediaType": "dcat:mediaType",
+    "format": "dct:format",
+    "downloadURL": { "@id": "dcat:downloadURL", "@type": "@id" },
+    "accessURL": { "@id": "dcat:accessURL", "@type": "@id" },
+    "byteSize": "dcat:byteSize",
+    "describedBy": { "@id": "wdrs:describedBy", "@type": "@id" },
+    "describedByType": "wdrs:describedByType",
+    "conformsTo": { "@id": "dct:conformsTo", "@type": "@id" },
+    "bureauCode": "ps:bureauCode",
+    "programCode": "ps:programCode",
+
+    "documentType": "ps:documentType",
+    "abstract": "dct:abstract",
+    "agency": { "@id": "ps:agency", "@type": "@id" },
+    "docketId": "ps:docketId",
+    "rin": "ps:rin",
+    "frDocNum": "ps:frDocNum",
+    "citation": "ps:citation",
+    "publicationDate": { "@id": "schema:datePublished", "@type": "schema:Date" },
+    "effectiveDate": { "@id": "ps:effectiveDate", "@type": "schema:Date" },
+    "commentStartDate": { "@id": "ps:commentStartDate", "@type": "schema:DateTime" },
+    "commentEndDate": { "@id": "ps:commentEndDate", "@type": "schema:DateTime" },
+    "cfrReferences": "ps:cfrReferences",
+    "topics": "ps:topics",
+    "htmlUrl": { "@id": "ps:htmlUrl", "@type": "@id" },
+    "pdfUrl": { "@id": "ps:pdfUrl", "@type": "@id" },
+    "regulationsGovUrl": { "@id": "ps:regulationsGovUrl", "@type": "@id" },
+    "commentCount": "ps:commentCount"
+  },
+  "@graph": [
+    {
+      "@id": "https://github.com/api-evangelist/public-sector",
+      "@type": "schema:Dataset",
+      "name": "API Evangelist Public Sector Topic",
+      "description": "Industry-vertical index for the public-sector / government API landscape across U.S. federal, state, and local levels.",
+      "publisher": {
+        "@type": "schema:Organization",
+        "name": "API Evangelist"
+      }
+    },
+    {
+      "@id": "https://api.data.gov",
+      "@type": "schema:WebAPI",
+      "name": "api.data.gov",
+      "description": "Free API management gateway operated by GSA's Technology Transformation Services, fronting 450+ APIs across roughly 25 federal agencies."
+    },
+    {
+      "@id": "https://www.data.gov",
+      "@type": "dcat:Catalog",
+      "name": "data.gov",
+      "description": "U.S. federal open data catalog, powered by CKAN."
+    },
+    {
+      "@id": "https://www.regulations.gov",
+      "@type": "schema:WebAPI",
+      "name": "Regulations.gov API",
+      "description": "Federal regulatory dockets, documents, and public comments."
+    },
+    {
+      "@id": "https://www.federalregister.gov",
+      "@type": "schema:WebAPI",
+      "name": "Federal Register API",
+      "description": "Daily Federal Register published by the Office of the Federal Register and GPO."
+    }
+  ]
+}

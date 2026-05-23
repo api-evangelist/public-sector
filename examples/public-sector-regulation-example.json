@@ -1,0 +1,50 @@
+{
+  "@context": "https://api-evangelist.github.io/public-sector/json-ld/public-sector-context.jsonld",
+  "@type": "PublicSectorRegulation",
+  "id": "EPA-HQ-OAR-2024-0001-0042",
+  "documentType": "Proposed Rule",
+  "title": "Standards of Performance for New, Reconstructed, and Modified Sources and Emissions Guidelines for Existing Sources: Oil and Natural Gas Sector — Proposed Amendments",
+  "abstract": "The Environmental Protection Agency (EPA) is proposing targeted amendments to the new source performance standards (NSPS) and emissions guidelines (EG) for the oil and natural gas sector to better reflect cost-effective emissions reduction technologies. The amendments would update certain monitoring frequencies, equipment leak thresholds, and reporting requirements. EPA solicits comment on all aspects of the proposed amendments and on alternatives discussed in the preamble.",
+  "agency": {
+    "name": "Environmental Protection Agency",
+    "shortName": "EPA",
+    "url": "https://www.epa.gov",
+    "parentAgency": "U.S. Government"
+  },
+  "docketId": "EPA-HQ-OAR-2024-0001",
+  "rin": "2060-AV99",
+  "frDocNum": "2026-05022",
+  "citation": "91 FR 21789",
+  "publicationDate": "2026-04-22",
+  "effectiveDate": "2026-06-21",
+  "commentStartDate": "2026-04-22T00:00:00Z",
+  "commentEndDate": "2026-06-21T23:59:59Z",
+  "cfrReferences": [
+    { "title": 40, "part": "60", "section": "Subpart OOOOa" },
+    { "title": 40, "part": "60", "section": "Subpart OOOOb" },
+    { "title": 40, "part": "60", "section": "Subpart OOOOc" }
+  ],
+  "topics": [
+    "Air pollution control",
+    "Environmental protection",
+    "Greenhouse gases",
+    "Oil and gas",
+    "Reporting and recordkeeping requirements"
+  ],
+  "htmlUrl": "https://www.federalregister.gov/documents/2026/04/22/2026-05022/standards-of-performance-for-new-reconstructed-and-modified-sources",
+  "pdfUrl": "https://www.federalregister.gov/documents/2026/04/22/2026-05022.pdf",
+  "regulationsGovUrl": "https://www.regulations.gov/document/EPA-HQ-OAR-2024-0001-0042",
+  "commentCount": 18432,
+  "attachments": [
+    {
+      "title": "Regulatory Impact Analysis",
+      "url": "https://www.regulations.gov/document/EPA-HQ-OAR-2024-0001-0043",
+      "mediaType": "application/pdf"
+    },
+    {
+      "title": "Technical Support Document",
+      "url": "https://www.regulations.gov/document/EPA-HQ-OAR-2024-0001-0044",
+      "mediaType": "application/pdf"
+    }
+  ]
+}

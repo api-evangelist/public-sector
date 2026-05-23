@@ -1,0 +1,617 @@
+name: Public Sector
+description: >-
+  Industry-vertical index for the public-sector / government API landscape
+  across U.S. federal, state, and local levels. Catalogs the federal API
+  gateway api.data.gov (operated by GSA's Technology Transformation Services
+  under the Open Government Data Act of 2018, used by 25 agencies for over
+  450 APIs), the catalog.data.gov CKAN metadata catalog, headline federal
+  programmatic surfaces (Regulations.gov, Federal Register, GovInfo, SAM.gov,
+  USAspending.gov, Treasury Fiscal Data, Congress.gov, FEC openFEC,
+  api.weather.gov, api.nasa.gov, Census Data API, Bureau of Economic
+  Analysis), state and local infrastructure (Socrata / Tyler Data and
+  Insights, Tyler Technologies courts/ERP/public-safety stack, OpenGov
+  ERP/budgeting/permitting cloud), and the civic-tech layer
+  (OpenStates / Plural Policy, GovTrack, Open Civic Data). Cross-references
+  Kin Lane's 2026-05-05 roundup of 211 U.S. federal agencies and their APIs
+  on apievangelist.com. The catalog focuses on the data-schema shape of a
+  government dataset / agency / regulation record so that civic-tech and
+  enterprise consumers can normalize across federal, state, and local
+  publishers.
+url: https://github.com/api-evangelist/public-sector
+humanURL: https://github.com/api-evangelist/public-sector
+image: ''
+tags:
+  - Public Sector
+  - Government
+  - Federal
+  - State
+  - Local
+  - Civic Tech
+  - Open Data
+  - Regulations
+  - Procurement
+  - Open Government
+  - Topic
+created: '2026-05-23'
+modified: '2026-05-23'
+specificationVersion: '0.18'
+type: Index
+
+apis:
+
+  - name: api.data.gov
+    description: >-
+      Free API management gateway operated by the U.S. General Services
+      Administration's Technology Transformation Services. Fronts the API keys,
+      rate limiting, and analytics for over 450 APIs across roughly 25
+      participating federal agencies and serves as GSA's vehicle for
+      fulfilling the Open Government Data Act of 2018. A single api.data.gov
+      key is reusable across NASA, NREL, USDA, USDOT, Department of Education,
+      Regulations.gov, GovInfo, and many other federal API surfaces.
+    humanURL: https://api.data.gov
+    baseURL: https://api.data.gov
+    tags:
+      - Federal
+      - API Gateway
+      - GSA
+      - API Keys
+      - Rate Limiting
+    properties:
+      - type: Portal
+        url: https://api.data.gov
+      - type: Documentation
+        url: https://api.data.gov/docs/
+      - type: SignUp
+        url: https://api.data.gov/signup/
+      - type: GitHubOrganization
+        url: https://github.com/18F
+      - type: GitHubRepository
+        url: https://github.com/18F/api.data.gov
+
+  - name: data.gov (CKAN catalog)
+    description: >-
+      The U.S. federal open data catalog at catalog.data.gov, powered by the
+      open-source CKAN platform. The CKAN Action API at
+      https://catalog.data.gov/api/3/action/ exposes dataset metadata
+      (package_search, package_show, package_list), organization listings
+      (organization_list, organization_show), groups, tags, and resource
+      records. data.gov holds only metadata about datasets, not the underlying
+      data — each dataset entry links out to the publishing agency's
+      authoritative resource URLs (CSV, JSON, GeoJSON, Shapefile, SODA, REST).
+    humanURL: https://www.data.gov
+    baseURL: https://catalog.data.gov/api/3/
+    tags:
+      - Federal
+      - Catalog
+      - Open Data
+      - CKAN
+      - Metadata
+    properties:
+      - type: Portal
+        url: https://www.data.gov
+      - type: Catalog
+        url: https://catalog.data.gov
+      - type: APIEndpoint
+        url: https://catalog.data.gov/api/3/action/
+      - type: Documentation
+        url: https://docs.ckan.org/en/latest/api/index.html
+      - type: GitHubRepository
+        url: https://github.com/GSA/data.gov
+
+  - name: Regulations.gov API
+    description: >-
+      The Regulations.gov v4 REST API exposes federal regulatory dockets,
+      documents (Proposed Rules, Rules, Supporting & Related Material, Other),
+      and public comments. Read endpoints follow api.data.gov rate-limit
+      policies; the commenting endpoint is restricted to 50 requests per
+      minute with a secondary limit of 500 requests per hour. Authentication
+      uses an X-Api-Key header issued from api.data.gov, with DEMO_KEY
+      available for testing.
+    humanURL: https://www.regulations.gov
+    baseURL: https://api.regulations.gov/v4
+    tags:
+      - Federal
+      - Regulations
+      - Dockets
+      - Documents
+      - Comments
+      - api.data.gov
+    properties:
+      - type: Portal
+        url: https://www.regulations.gov
+      - type: Documentation
+        url: https://open.gsa.gov/api/regulationsgov/
+      - type: Authentication
+        url: https://api.data.gov/signup/
+
+  - name: Federal Register API
+    description: >-
+      JSON REST API for the daily Federal Register published by the Office of
+      the Federal Register and GPO. Exposes documents (Notice, Proposed Rule,
+      Rule, Presidential Document), agencies, public-inspection documents,
+      suggested searches, and Topics. No API key required for read access.
+      Used by FederalRegister.gov, regulations.gov, and downstream legal
+      analytics tools.
+    humanURL: https://www.federalregister.gov
+    baseURL: https://www.federalregister.gov/api/v1
+    tags:
+      - Federal
+      - Federal Register
+      - Regulations
+      - GPO
+    properties:
+      - type: Portal
+        url: https://www.federalregister.gov
+      - type: Documentation
+        url: https://www.federalregister.gov/developers/api/v1
+      - type: GitHubOrganization
+        url: https://github.com/usnationalarchives
+      - type: GitHubRepository
+        url: https://github.com/usnationalarchives/federalregister.gov
+
+  - name: GovInfo API
+    description: >-
+      U.S. Government Publishing Office (GPO) GovInfo developer hub. The
+      Collections API at api.govinfo.gov delivers self-describing packages of
+      authoritative federal content — Congressional bills, Federal Register,
+      Code of Federal Regulations, Public and Private Laws, Statutes at
+      Large, Compilation of Presidential Documents, U.S. Courts opinions, and
+      more. Companion services include the Search Service API (added 2023),
+      the Related Documents Service API (added 2021), the Bulk Data
+      repository, the Link Service, and RSS feeds. Auth via api.data.gov key.
+    humanURL: https://www.govinfo.gov
+    baseURL: https://api.govinfo.gov
+    tags:
+      - Federal
+      - GPO
+      - Bills
+      - Federal Register
+      - CFR
+      - Bulk Data
+      - api.data.gov
+    properties:
+      - type: Portal
+        url: https://www.govinfo.gov
+      - type: Documentation
+        url: https://api.govinfo.gov/docs/
+      - type: BulkData
+        url: https://www.govinfo.gov/bulkdata
+      - type: Authentication
+        url: https://api.data.gov/signup/
+
+  - name: SAM.gov APIs
+    description: >-
+      System for Award Management (SAM.gov), the U.S. federal procurement and
+      financial assistance system, exposes 11 production APIs catalogued at
+      open.gsa.gov including Entity Management, Exclusions, Federal Hierarchy
+      (Public and FOUO variants), Contract Opportunities (Get Opportunities
+      Public, Opportunity Management), Contract Awards, Product Service
+      Codes, Public Location Services, Assistance Listings Public, Subaward
+      Reporting (Acquisition and Assistance), and Entity/Exclusions Extracts
+      Download. Auth via api.data.gov key.
+    humanURL: https://sam.gov
+    baseURL: https://api.sam.gov
+    tags:
+      - Federal
+      - Procurement
+      - SAM.gov
+      - Entity
+      - Exclusions
+      - Opportunities
+      - api.data.gov
+    properties:
+      - type: Portal
+        url: https://sam.gov
+      - type: Documentation
+        url: https://open.gsa.gov/api/
+      - type: Authentication
+        url: https://api.data.gov/signup/
+
+  - name: USAspending.gov API
+    description: >-
+      The USAspending API, maintained by the U.S. Department of the Treasury,
+      provides public access to comprehensive U.S. government spending data
+      including federal contracts, grants, loans, direct payments, agency
+      and geographic breakdowns, and account-level information such as
+      employee compensation. The API helps federal agencies meet their DATA
+      Act reporting obligations. Currently version 2; v1 endpoints are
+      deprecated. No API key required for read access.
+    humanURL: https://www.usaspending.gov
+    baseURL: https://api.usaspending.gov/api/v2/
+    tags:
+      - Federal
+      - Treasury
+      - Spending
+      - Contracts
+      - Grants
+      - DATA Act
+    properties:
+      - type: Portal
+        url: https://www.usaspending.gov
+      - type: Documentation
+        url: https://api.usaspending.gov/docs/
+      - type: GitHubOrganization
+        url: https://github.com/fedspendingtransparency
+      - type: GitHubRepository
+        url: https://github.com/fedspendingtransparency/usaspending-api
+
+  - name: Treasury Fiscal Data API
+    description: >-
+      Bureau of the Fiscal Service API at api.fiscaldata.treasury.gov exposing
+      Treasury's authoritative fiscal datasets — Debt to the Penny, Monthly
+      Treasury Statement, Daily Treasury Statement, Exchange Rates, Treasury
+      Reporting Rates of Exchange, Average Interest Rates, Historical Debt
+      Outstanding, and Securities Outstanding. JSON / XML / CSV responses.
+      No API key required.
+    humanURL: https://fiscaldata.treasury.gov
+    baseURL: https://api.fiscaldata.treasury.gov/services/api/fiscal_service/
+    tags:
+      - Federal
+      - Treasury
+      - Fiscal Data
+      - Debt
+      - Exchange Rates
+    properties:
+      - type: Portal
+        url: https://fiscaldata.treasury.gov
+      - type: Documentation
+        url: https://fiscaldata.treasury.gov/api-documentation/
+
+  - name: Congress.gov API
+    description: >-
+      The api.congress.gov REST API, maintained by the Library of Congress,
+      exposes structured legislative data — bills, amendments, summaries,
+      members, committees, committee reports, congressional record, nominations,
+      treaties, and congresses. Auth via api.data.gov key. The canonical
+      programmatic feed for the U.S. House and Senate replacing the legacy
+      congress.gov RSS / XML downloads.
+    humanURL: https://api.congress.gov
+    baseURL: https://api.congress.gov/v3
+    tags:
+      - Federal
+      - Legislative
+      - Congress
+      - Library of Congress
+      - api.data.gov
+    properties:
+      - type: Portal
+        url: https://api.congress.gov
+      - type: Documentation
+        url: https://github.com/LibraryOfCongress/api.congress.gov/
+      - type: GitHubOrganization
+        url: https://github.com/LibraryOfCongress
+      - type: GitHubRepository
+        url: https://github.com/LibraryOfCongress/api.congress.gov
+      - type: Authentication
+        url: https://api.data.gov/signup/
+
+  - name: FEC openFEC API
+    description: >-
+      Federal Election Commission's openFEC REST API at api.open.fec.gov
+      exposes campaign finance data — candidates, committees (PACs, parties,
+      campaigns), filings, contributions, disbursements, independent
+      expenditures, electioneering communications, communication costs, and
+      coverage dates. Auth via api.data.gov key.
+    humanURL: https://www.fec.gov/data/
+    baseURL: https://api.open.fec.gov/v1
+    tags:
+      - Federal
+      - FEC
+      - Elections
+      - Campaign Finance
+      - api.data.gov
+    properties:
+      - type: Portal
+        url: https://www.fec.gov/data/
+      - type: Documentation
+        url: https://api.open.fec.gov/developers/
+      - type: GitHubOrganization
+        url: https://github.com/fecgov
+      - type: GitHubRepository
+        url: https://github.com/fecgov/openFEC
+
+  - name: api.weather.gov (NOAA NWS)
+    description: >-
+      National Weather Service REST + JSON-LD API at api.weather.gov delivering
+      open weather forecasts, alerts, and observations. Endpoints include
+      /points/{lat,lon}, /gridpoints/{office}/{x},{y}/forecast, /gridpoints/
+      .../forecast/hourly, /alerts/active, /alerts, /stations, /products, and
+      /zones. Authentication is User-Agent only — no API key required — and
+      all responses are intended as open data free to use for any purpose.
+    humanURL: https://www.weather.gov/documentation/services-web-api
+    baseURL: https://api.weather.gov
+    tags:
+      - Federal
+      - NOAA
+      - National Weather Service
+      - Weather
+      - Forecast
+      - Alerts
+      - JSON-LD
+    properties:
+      - type: Portal
+        url: https://www.weather.gov/documentation/services-web-api
+      - type: Specification
+        url: https://api.weather.gov/openapi.json
+      - type: GitHubOrganization
+        url: https://github.com/weather-gov
+
+  - name: api.nasa.gov
+    description: >-
+      Aggregated NASA Open APIs hub at api.nasa.gov. Includes Astronomy
+      Picture of the Day (APOD), Asteroids NeoWs, DONKI (Space Weather),
+      Earth Imagery, EONET (Earth Observatory Natural Event Tracker), EPIC,
+      Exoplanet Archive, Open Science Data Repository, Insight (Mars
+      weather), Mars Rover Photos, NASA Image and Video Library, TechTransfer,
+      Satellite Situation Center, SSD/CNEOS, Techport, TLE API, and Vesta.
+      Auth via api.data.gov key (rate limited per the gateway's tiers).
+    humanURL: https://api.nasa.gov
+    baseURL: https://api.nasa.gov
+    tags:
+      - Federal
+      - NASA
+      - Open Data
+      - Science
+      - api.data.gov
+    properties:
+      - type: Portal
+        url: https://api.nasa.gov
+      - type: GitHubOrganization
+        url: https://github.com/nasa
+      - type: Authentication
+        url: https://api.data.gov/signup/
+
+  - name: Census Data API
+    description: >-
+      U.S. Census Bureau Data API at api.census.gov serving approximately
+      1,784 datasets across major survey programs — Decennial Census,
+      American Community Survey (ACS 1-year and 5-year), Population Estimates
+      Program (PEP), Current Population Survey (CPS), Survey of Income and
+      Program Participation (SIPP), County Business Patterns (CBP), Economic
+      Census, International Trade, and more. API key obtained via Census
+      Bureau registration.
+    humanURL: https://www.census.gov/data/developers.html
+    baseURL: https://api.census.gov/data
+    tags:
+      - Federal
+      - Census
+      - Demographics
+      - ACS
+      - Economic
+    properties:
+      - type: Portal
+        url: https://www.census.gov/data/developers.html
+      - type: Catalog
+        url: https://api.census.gov/data.html
+      - type: SignUp
+        url: https://api.census.gov/data/key_signup.html
+      - type: GitHubOrganization
+        url: https://github.com/uscensusbureau
+
+  - name: Bureau of Economic Analysis (BEA) API
+    description: >-
+      BEA Data API exposing GDP, national income, personal income, corporate
+      profits, international trade and investment, regional accounts, and
+      industry accounts. JSON and XML responses. API key obtained from BEA
+      registration.
+    humanURL: https://www.bea.gov/tools/
+    baseURL: https://apps.bea.gov/api/data
+    tags:
+      - Federal
+      - BEA
+      - Economic Statistics
+      - GDP
+    properties:
+      - type: Portal
+        url: https://www.bea.gov/tools/
+      - type: Documentation
+        url: https://apps.bea.gov/api/_pdf/bea_web_service_api_user_guide.pdf
+
+  - name: OpenStates API (Plural Policy)
+    description: >-
+      OpenStates v3 REST API at v3.openstates.org, operated by Plural Policy,
+      providing JSON access to U.S. state legislative information — bills,
+      people (legislators and governors), jurisdictions, committees, and
+      events across all 50 states, D.C., and territories. Authentication via
+      X-API-KEY header or apikey query parameter. The legacy v2 GraphQL
+      endpoint is deprecated.
+    humanURL: https://openstates.org
+    baseURL: https://v3.openstates.org
+    tags:
+      - State
+      - Civic Tech
+      - Legislative
+      - Bills
+      - Plural Policy
+    properties:
+      - type: Portal
+        url: https://openstates.org
+      - type: Documentation
+        url: https://docs.openstates.org/api-v3/
+      - type: GitHubOrganization
+        url: https://github.com/openstates
+      - type: GitHubRepository
+        url: https://github.com/openstates/openstates-scrapers
+
+  - name: GovTrack
+    description: >-
+      GovTrack.us civic-tech site tracking U.S. Congress — bills, votes,
+      members, committees, congressional districts. Originally one of the
+      first civic-tech APIs; today its bulk data downloads at
+      govtrack.us/data and its scraper pipeline at
+      github.com/govtrack/congress remain widely reused even as the public
+      REST API has been wound down in favor of api.congress.gov and bulk
+      downloads.
+    humanURL: https://www.govtrack.us
+    baseURL: https://www.govtrack.us/api/v2
+    tags:
+      - Federal
+      - Civic Tech
+      - Congress
+      - Bills
+      - Votes
+    properties:
+      - type: Portal
+        url: https://www.govtrack.us
+      - type: BulkData
+        url: https://www.govtrack.us/data/
+      - type: GitHubOrganization
+        url: https://github.com/govtrack
+      - type: GitHubRepository
+        url: https://github.com/govtrack/congress
+
+  - name: Open Civic Data
+    description: >-
+      Open Civic Data is a community-maintained set of specifications and
+      shared identifiers for civic information — Open Civic Data Division
+      Identifiers (OCD-IDs) for political geographies, plus normalized models
+      for jurisdictions, organizations, people, posts, memberships, bills,
+      votes, and events. Underlies OpenStates' scrapers, Google's Civic
+      Information API, and many state/local civic data pipelines.
+    humanURL: https://opencivicdata.readthedocs.io
+    tags:
+      - Civic Tech
+      - Standards
+      - Identifiers
+      - OCD-ID
+      - Jurisdictions
+    properties:
+      - type: Documentation
+        url: https://opencivicdata.readthedocs.io
+      - type: GitHubOrganization
+        url: https://github.com/opencivicdata
+      - type: GitHubRepository
+        url: https://github.com/opencivicdata/ocd-division-ids
+      - type: Specification
+        url: https://github.com/opencivicdata/docs.opencivicdata.org
+
+  - name: Socrata Open Data API (Tyler Data and Insights)
+    description: >-
+      Socrata Open Data API (SODA) is the read/write JSON API powering open
+      data portals at federal, state, county, and city governments worldwide.
+      Queries use SoQL (Socrata Query Language), responses are JSON/CSV/GeoJSON,
+      and write operations require an OAuth token. App tokens (free, no auth)
+      raise per-IP throttles. Socrata was acquired by Tyler Technologies in
+      2018 and now operates as the Data and Insights division — the same
+      platform under new branding.
+    humanURL: https://dev.socrata.com
+    baseURL: https://{domain}/resource/{datasetId}.json
+    tags:
+      - State
+      - Local
+      - Federal
+      - Open Data
+      - Socrata
+      - Tyler Technologies
+    properties:
+      - type: Portal
+        url: https://dev.socrata.com
+      - type: Documentation
+        url: https://dev.socrata.com/docs/endpoints.html
+      - type: GitHubOrganization
+        url: https://github.com/socrata
+      - type: QueryLanguage
+        url: https://dev.socrata.com/docs/queries/
+
+  - name: Tyler Technologies
+    description: >-
+      Largest U.S. vendor of mission-critical software to state and local
+      government. Product portfolio spans Courts & Justice (case management,
+      e-filing, jury management, prosecution), Enterprise Resource Planning
+      (financials, HR, revenue, utilities), Public Safety (CAD, records
+      management, citation management, fire & EMS), Civic Services
+      (permitting, licensing, asset management, community development), Property
+      & Assessment (appraisal, tax billing, CAMA), K-12 Schools, Outdoor
+      Recreation (campground reservations, hunting/fishing licensing), and
+      Data & Insights (the former Socrata business). Counterparty for the
+      majority of state and county-level government IT in the U.S.
+    humanURL: https://www.tylertech.com
+    tags:
+      - State
+      - Local
+      - Vendor
+      - Courts
+      - ERP
+      - Public Safety
+    properties:
+      - type: Portal
+        url: https://www.tylertech.com
+      - type: Products
+        url: https://www.tylertech.com/products
+      - type: Developer
+        url: https://dev.socrata.com
+
+  - name: OpenGov
+    description: >-
+      OpenGov sells a cloud ERP, budgeting, financial-reporting, permitting,
+      licensing, and procurement suite to U.S. state and local governments.
+      Originally a Sunlight Foundation spinout, OpenGov has consolidated
+      legacy financial systems for municipalities, counties, and special
+      districts. The OpenGov ERP Cloud is the company's flagship offering.
+    humanURL: https://www.opengov.com
+    tags:
+      - State
+      - Local
+      - Vendor
+      - ERP
+      - Budgeting
+      - Permitting
+      - Procurement
+    properties:
+      - type: Portal
+        url: https://www.opengov.com
+      - type: Products
+        url: https://www.opengov.com/products
+
+  - name: API Evangelist Federal Agencies Roundup
+    description: >-
+      Kin Lane's 2026-05-05 roundup at apievangelist.com indexes 211 U.S.
+      federal agencies and their public-facing APIs, RSS feeds, open-data
+      surfaces, and referenced internal systems. Each agency has its own
+      api-evangelist GitHub repo with apis.yml, controlled vocabulary, and
+      where applicable OpenAPI specs. This public-sector topic repo serves
+      as the umbrella catalog binding those agency profiles to the broader
+      federal / state / local / civic-tech landscape.
+    humanURL: https://apievangelist.com/2026/05/05/a-roundup-of-us-federal-agencies-and-their-apis/
+    tags:
+      - Federal
+      - Roundup
+      - API Evangelist
+      - Catalog
+    properties:
+      - type: Post
+        url: https://apievangelist.com/2026/05/05/a-roundup-of-us-federal-agencies-and-their-apis/
+      - type: GitHubOrganization
+        url: https://github.com/api-evangelist
+
+# Artifacts produced for this topic repo
+artifacts:
+  - type: JSONSchema
+    url: ./json-schema/public-sector-agency-schema.json
+  - type: JSONSchema
+    url: ./json-schema/public-sector-dataset-schema.json
+  - type: JSONSchema
+    url: ./json-schema/public-sector-regulation-schema.json
+  - type: JSONStructure
+    url: ./json-structure/public-sector-agency-structure.json
+  - type: JSONStructure
+    url: ./json-structure/public-sector-dataset-structure.json
+  - type: JSONStructure
+    url: ./json-structure/public-sector-regulation-structure.json
+  - type: JSONLD
+    url: ./json-ld/public-sector-context.jsonld
+  - type: Vocabulary
+    url: ./vocabulary/public-sector-vocabulary.yml
+  - type: Example
+    url: ./examples/public-sector-agency-example.json
+  - type: Example
+    url: ./examples/public-sector-dataset-example.json
+  - type: Example
+    url: ./examples/public-sector-regulation-example.json
+
+include: []
+
+maintainers:
+  - FN: Kin Lane
+    email: info@apievangelist.com
+    url: https://apievangelist.com

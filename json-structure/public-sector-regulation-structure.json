@@ -1,0 +1,29 @@
+{
+  "name": "PublicSectorRegulation",
+  "description": "Flattened structural view of a Federal Register / Regulations.gov regulatory document.",
+  "fields": [
+    { "name": "id", "type": "string", "required": true, "description": "Regulations.gov document ID or Federal Register document number." },
+    { "name": "documentType", "type": "string", "required": true, "description": "Notice | Proposed Rule | Rule | Presidential Document | Supporting & Related Material | Other." },
+    { "name": "title", "type": "string", "required": true, "description": "Document title." },
+    { "name": "abstract", "type": "string", "required": false, "description": "Short summary of the regulatory action." },
+    { "name": "agency.name", "type": "string", "required": true, "description": "Issuing agency name." },
+    { "name": "agency.shortName", "type": "string", "required": false, "description": "Agency abbreviation." },
+    { "name": "agency.url", "type": "string", "required": false, "description": "Agency homepage." },
+    { "name": "agency.parentAgency", "type": "string", "required": false, "description": "Parent agency name." },
+    { "name": "docketId", "type": "string", "required": false, "description": "Regulations.gov docket ID (e.g. EPA-HQ-OAR-2024-0001)." },
+    { "name": "rin", "type": "string", "required": false, "description": "Regulatory Identifier Number (XXXX-XXXX)." },
+    { "name": "frDocNum", "type": "string", "required": false, "description": "Federal Register document number." },
+    { "name": "citation", "type": "string", "required": false, "description": "Federal Register citation (e.g. 90 FR 12345)." },
+    { "name": "publicationDate", "type": "date", "required": false, "description": "Federal Register publication date." },
+    { "name": "effectiveDate", "type": "date", "required": false, "description": "Rule effective date." },
+    { "name": "commentStartDate", "type": "datetime", "required": false, "description": "Start of comment period." },
+    { "name": "commentEndDate", "type": "datetime", "required": false, "description": "Close of comment period." },
+    { "name": "cfrReferences", "type": "array<object>", "required": false, "description": "CFR sections affected {title, part, section}." },
+    { "name": "topics", "type": "array<string>", "required": false, "description": "Federal Register subject topics." },
+    { "name": "htmlUrl", "type": "string", "required": false, "description": "HTML rendering URL." },
+    { "name": "pdfUrl", "type": "string", "required": false, "description": "PDF rendering URL." },
+    { "name": "regulationsGovUrl", "type": "string", "required": false, "description": "Regulations.gov canonical URL." },
+    { "name": "commentCount", "type": "integer", "required": false, "description": "Public comment count." },
+    { "name": "attachments", "type": "array<object>", "required": false, "description": "Supporting materials {title, url, mediaType}." }
+  ]
+}

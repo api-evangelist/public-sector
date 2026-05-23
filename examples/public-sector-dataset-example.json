@@ -1,0 +1,61 @@
+{
+  "@context": "https://api-evangelist.github.io/public-sector/json-ld/public-sector-context.jsonld",
+  "@type": "PublicSectorDataset",
+  "identifier": "https://catalog.data.gov/dataset/consumer-complaint-database",
+  "title": "Consumer Complaint Database",
+  "description": "Consumer complaints about financial products and services submitted to the Consumer Financial Protection Bureau and forwarded to the responding company. Each row represents a consumer complaint with product, sub-product, issue, company, state, ZIP code, submission method, date received, company response, timely-response flag, and consumer disputed flag.",
+  "keyword": [
+    "consumer complaints",
+    "financial products",
+    "CFPB",
+    "credit reporting",
+    "mortgages",
+    "debt collection"
+  ],
+  "modified": "2026-05-22T08:00:00Z",
+  "issued": "2012-12-01T00:00:00Z",
+  "publisher": {
+    "name": "Consumer Financial Protection Bureau",
+    "url": "https://www.consumerfinance.gov",
+    "subOrganizationOf": "U.S. Government"
+  },
+  "contactPoint": {
+    "fn": "CFPB Open Data Team",
+    "hasEmail": "mailto:cfpb_open_data@cfpb.gov"
+  },
+  "accessLevel": "public",
+  "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "theme": ["Consumer", "Finance"],
+  "spatial": "United States",
+  "temporal": "2011-12-01/2026-05-22",
+  "accrualPeriodicity": "R/P1D",
+  "landingPage": "https://www.consumerfinance.gov/data-research/consumer-complaints/",
+  "distribution": [
+    {
+      "title": "Consumer Complaint Database - CSV",
+      "description": "Full CSV download of the Consumer Complaint Database, refreshed nightly.",
+      "mediaType": "text/csv",
+      "format": "CSV",
+      "downloadURL": "https://files.consumerfinance.gov/ccdb/complaints.csv.zip",
+      "byteSize": 1840000000
+    },
+    {
+      "title": "Consumer Complaint Database - SODA Endpoint",
+      "description": "Socrata Open Data API endpoint with SoQL query support.",
+      "mediaType": "application/json",
+      "format": "SODA",
+      "accessURL": "https://data.consumerfinance.gov/resource/s6ew-h6mp.json",
+      "conformsTo": "https://dev.socrata.com/foundry/data.consumerfinance.gov/s6ew-h6mp"
+    },
+    {
+      "title": "Consumer Complaint Database - REST API",
+      "description": "Public search REST API powering the CFPB consumer-complaints web UI.",
+      "mediaType": "application/json",
+      "format": "REST",
+      "accessURL": "https://www.consumerfinance.gov/data-research/consumer-complaints/search/api/v1/"
+    }
+  ],
+  "language": ["en-US"],
+  "bureauCode": ["582:60"],
+  "programCode": ["582:001"]
+}

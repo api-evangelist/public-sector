@@ -1,0 +1,58 @@
+{
+  "@context": "https://api-evangelist.github.io/public-sector/json-ld/public-sector-context.jsonld",
+  "@type": "PublicSectorAgency",
+  "id": "https://www.gsa.gov",
+  "name": "General Services Administration",
+  "shortName": "GSA",
+  "alternateNames": ["U.S. General Services Administration"],
+  "level": "federal",
+  "country": "US",
+  "jurisdiction": {
+    "ocdId": "ocd-division/country:us",
+    "name": "United States"
+  },
+  "mission": "GSA provides centralized procurement and shared services for the federal government, manages federal real estate, and operates Technology Transformation Services — including 18F, Cloud.gov, Login.gov, and the api.data.gov gateway used by 25 federal agencies for over 450 APIs.",
+  "url": "https://www.gsa.gov",
+  "developerPortalUrl": "https://open.gsa.gov/api/",
+  "dataPortalUrl": "https://www.data.gov",
+  "foiaUrl": "https://www.gsa.gov/reference/freedom-of-information-act-foia",
+  "apis": [
+    {
+      "name": "api.data.gov",
+      "url": "https://api.data.gov",
+      "type": "REST",
+      "authMethod": "api-key"
+    },
+    {
+      "name": "SAM.gov Entity Management API",
+      "url": "https://api.sam.gov",
+      "type": "REST",
+      "authMethod": "api.data.gov"
+    },
+    {
+      "name": "USAspending.gov API",
+      "url": "https://api.usaspending.gov/api/v2/",
+      "type": "REST",
+      "authMethod": "none"
+    },
+    {
+      "name": "data.gov CKAN API",
+      "url": "https://catalog.data.gov/api/3/action/",
+      "type": "CKAN",
+      "authMethod": "none"
+    },
+    {
+      "name": "Analytics.usa.gov API",
+      "url": "https://analytics.usa.gov/data/",
+      "type": "REST",
+      "authMethod": "none"
+    }
+  ],
+  "githubOrg": "https://github.com/GSA",
+  "statutoryAuthority": [
+    "Federal Property and Administrative Services Act of 1949",
+    "Open Government Data Act of 2018",
+    "Foundations for Evidence-Based Policymaking Act of 2018",
+    "DATA Act of 2014"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "name": "PublicSectorDataset",
+  "description": "Flattened structural view of a government dataset metadata record, DCAT-US 1.1 aligned. Round-trips with CKAN package_show and Socrata dataset metadata.",
+  "fields": [
+    { "name": "identifier", "type": "string", "required": true, "description": "Publisher-minted identifier (UUID or URI)." },
+    { "name": "title", "type": "string", "required": true, "description": "Dataset title." },
+    { "name": "description", "type": "string", "required": false, "description": "Free-text description." },
+    { "name": "keyword", "type": "array<string>", "required": false, "description": "Tags / keywords." },
+    { "name": "modified", "type": "datetime", "required": true, "description": "Most recent modification (RFC 3339)." },
+    { "name": "issued", "type": "datetime", "required": false, "description": "First publication date." },
+    { "name": "publisher.name", "type": "string", "required": true, "description": "Publishing agency name." },
+    { "name": "publisher.url", "type": "string", "required": false, "description": "Publishing agency URL." },
+    { "name": "publisher.subOrganizationOf", "type": "string", "required": false, "description": "Parent organization name." },
+    { "name": "contactPoint.fn", "type": "string", "required": false, "description": "Dataset steward name." },
+    { "name": "contactPoint.hasEmail", "type": "string", "required": false, "description": "mailto: URI for the steward." },
+    { "name": "accessLevel", "type": "string", "required": true, "description": "public | restricted public | non-public." },
+    { "name": "rights", "type": "string", "required": false, "description": "Rights / restrictions text." },
+    { "name": "license", "type": "string", "required": false, "description": "License URI." },
+    { "name": "theme", "type": "array<string>", "required": false, "description": "Thematic categories." },
+    { "name": "spatial", "type": "string", "required": false, "description": "Geographic coverage (bbox / placename / GeoJSON / OCD-ID)." },
+    { "name": "temporal", "type": "string", "required": false, "description": "ISO 8601 interval of temporal coverage." },
+    { "name": "accrualPeriodicity", "type": "string", "required": false, "description": "Update frequency (ISO 8601 duration or DCAT code)." },
+    { "name": "landingPage", "type": "string", "required": false, "description": "HTML landing page." },
+    { "name": "distribution", "type": "array<object>", "required": false, "description": "Concrete distributions {title, mediaType, format, downloadURL, accessURL, byteSize, describedBy, conformsTo}." },
+    { "name": "language", "type": "array<string>", "required": false, "description": "BCP 47 language tags." },
+    { "name": "bureauCode", "type": "array<string>", "required": false, "description": "OMB Circular A-11 bureau codes (federal)." },
+    { "name": "programCode", "type": "array<string>", "required": false, "description": "OMB Federal Program Inventory codes (federal)." }
+  ]
+}

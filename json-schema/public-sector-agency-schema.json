@@ -1,0 +1,118 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/public-sector/json-schema/public-sector-agency-schema.json",
+  "title": "PublicSectorAgency",
+  "description": "A government agency / bureau / commission / program at federal, state, county, or municipal level. Aligns with schema.org/GovernmentOrganization and with the Open Civic Data jurisdiction model. Identifiers favour stable URIs published by the agency itself (api.data.gov gateway URL, agency homepage, OCD-ID for political geography) over locally minted IDs.",
+  "type": "object",
+  "required": ["id", "name", "level", "country"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uri-reference",
+      "description": "Stable identifier for the agency. Prefer an Open Civic Data Division Identifier (ocd-division/country:us/state:ca) for elected/jurisdictional bodies; otherwise the agency's canonical homepage URL or its api.data.gov gateway URL."
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Official name of the agency (e.g. 'General Services Administration', 'Federal Election Commission', 'City of Chicago Department of Innovation and Technology')."
+    },
+    "shortName": {
+      "type": "string",
+      "description": "Official abbreviation (e.g. 'GSA', 'FEC', 'USDA', 'NASA')."
+    },
+    "alternateNames": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Other commonly used names or historical names."
+    },
+    "level": {
+      "type": "string",
+      "enum": ["federal", "state", "territorial", "tribal", "county", "municipal", "special-district", "international"],
+      "description": "Government level. 'federal' = U.S. national; 'state' = U.S. state or D.C.; 'tribal' = federally recognized tribal government; 'special-district' = single-purpose government (school, water, transit)."
+    },
+    "country": {
+      "type": "string",
+      "pattern": "^[A-Z]{2}$",
+      "description": "ISO 3166-1 alpha-2 country code (e.g. 'US')."
+    },
+    "jurisdiction": {
+      "type": "object",
+      "description": "The political geography this agency governs. Uses Open Civic Data Division Identifiers where applicable.",
+      "properties": {
+        "ocdId": {
+          "type": "string",
+          "description": "Open Civic Data Division Identifier (e.g. 'ocd-division/country:us/state:tx/place:austin')."
+        },
+        "name": {
+          "type": "string",
+          "description": "Human-readable jurisdiction name."
+        },
+        "state": {
+          "type": "string",
+          "pattern": "^[A-Z]{2}$",
+          "description": "USPS two-letter state code for U.S. agencies."
+        }
+      }
+    },
+    "parentAgency": {
+      "type": "string",
+      "format": "uri-reference",
+      "description": "ID or URL of the parent agency (e.g. Internal Revenue Service -> Department of the Treasury)."
+    },
+    "mission": {
+      "type": "string",
+      "description": "Statutory mission statement or one-paragraph description."
+    },
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "description": "Official agency homepage."
+    },
+    "developerPortalUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "Developer / API portal URL if one exists."
+    },
+    "dataPortalUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "Open-data portal URL (data.gov organization page, Socrata domain, CKAN catalog)."
+    },
+    "foiaUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "Freedom of Information Act / FOIA request portal."
+    },
+    "apis": {
+      "type": "array",
+      "description": "Public-facing programmatic surfaces the agency exposes.",
+      "items": {
+        "type": "object",
+        "required": ["name", "url"],
+        "properties": {
+          "name": { "type": "string" },
+          "url": { "type": "string", "format": "uri" },
+          "type": {
+            "type": "string",
+            "enum": ["REST", "SOAP", "GraphQL", "SODA", "CKAN", "RSS", "WMS", "WFS", "OGCAPI", "BulkData", "JSON-LD", "OData", "gRPC", "WebSocket"]
+          },
+          "authMethod": {
+            "type": "string",
+            "enum": ["none", "api-key", "api.data.gov", "OAuth2", "Basic", "MutualTLS", "User-Agent"]
+          }
+        }
+      }
+    },
+    "githubOrg": {
+      "type": "string",
+      "format": "uri",
+      "description": "Official GitHub organization (e.g. https://github.com/GSA, https://github.com/usnationalarchives)."
+    },
+    "statutoryAuthority": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Statutes establishing the agency or its data-publication obligation (e.g. 'Open Government Data Act of 2018', 'DATA Act of 2014', 'Foundations for Evidence-Based Policymaking Act of 2018')."
+    }
+  },
+  "additionalProperties": true
+}

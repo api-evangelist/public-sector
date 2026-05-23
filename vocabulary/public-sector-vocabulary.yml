@@ -1,0 +1,353 @@
+name: Public Sector Vocabulary
+description: >-
+  Vocabulary for the public-sector / government API landscape. Captures the
+  agencies-and-jurisdictions axis, the open-data / DCAT axis, the
+  regulatory-procurement-legislative axis, the platform/vendor axis (Socrata
+  / Tyler, OpenGov, CKAN, ArcGIS Hub), and the civic-tech axis (OpenStates /
+  Plural Policy, GovTrack, Open Civic Data). Sourced from data.gov DCAT-US
+  1.1, the Regulations.gov v4 API documentation, the Federal Register API
+  documentation, Open Civic Data, the CKAN Action API, the Socrata SODA
+  documentation, and Kin Lane's 2026-05-05 federal-agencies roundup.
+url: https://github.com/api-evangelist/public-sector
+version: '0.1.0'
+created: '2026-05-23'
+modified: '2026-05-23'
+
+operational:
+  description: >-
+    Core entities and concrete artifacts that flow through public-sector APIs.
+
+  entities:
+    - name: Agency
+      description: >-
+        Government organization at federal / state / tribal / county /
+        municipal / special-district level. The unit of accountability that
+        publishes APIs and datasets.
+    - name: Dataset
+      description: >-
+        Published collection of records, typically catalogued under DCAT-US 1.1
+        and exposed via download URLs, CKAN, or Socrata SODA endpoints.
+    - name: Distribution
+      description: >-
+        A concrete representation of a dataset — CSV, JSON, GeoJSON,
+        Shapefile, XLSX, SODA endpoint, or REST endpoint.
+    - name: Regulation
+      description: >-
+        Federal Register document (Notice, Proposed Rule, Rule, Presidential
+        Document, Supporting & Related Material, Other).
+    - name: Docket
+      description: >-
+        Regulations.gov organizational folder containing related documents
+        and public comments on a single regulatory action.
+    - name: Public Comment
+      description: >-
+        Member-of-the-public submission to a Regulations.gov docket during a
+        comment period.
+    - name: Contract Opportunity
+      description: >-
+        Federal procurement opportunity posted on SAM.gov.
+    - name: Award
+      description: >-
+        Federal contract, grant, loan, or direct-payment award reported to
+        USAspending.gov.
+    - name: Entity Registration
+      description: >-
+        SAM.gov registered legal entity eligible for federal awards.
+    - name: Exclusion
+      description: >-
+        SAM.gov debarment / suspension record.
+    - name: Bill
+      description: >-
+        Legislative proposal — federal (Congress.gov) or state (OpenStates /
+        Plural Policy).
+    - name: Vote
+      description: >-
+        Recorded roll-call vote on a bill or amendment.
+    - name: Legislator
+      description: >-
+        Elected federal or state legislator (Member of Congress, state senator
+        / representative).
+    - name: Filing
+      description: >-
+        FEC openFEC campaign-finance filing (Form 3, 3X, 5, etc.).
+    - name: CFR Reference
+      description: >-
+        Pointer into the Code of Federal Regulations as Title / Part /
+        Section.
+
+  identifiers:
+    - name: OCD-ID
+      description: >-
+        Open Civic Data Division Identifier (e.g.
+        ocd-division/country:us/state:ca/place:los_angeles).
+    - name: Docket ID
+      description: >-
+        Regulations.gov docket identifier (e.g. EPA-HQ-OAR-2024-0001).
+    - name: Document ID
+      description: >-
+        Regulations.gov document identifier (e.g.
+        EPA-HQ-OAR-2024-0001-0042).
+    - name: FR Document Number
+      description: >-
+        Federal Register document number (e.g. 2025-12345).
+    - name: FR Citation
+      description: >-
+        Federal Register volume + page citation (e.g. 90 FR 12345).
+    - name: RIN
+      description: >-
+        Regulatory Identifier Number assigned in the Unified Agenda
+        (XXXX-XXXX).
+    - name: UEI
+      description: >-
+        SAM.gov Unique Entity ID, the post-DUNS federal entity identifier.
+    - name: CAGE Code
+      description: >-
+        Commercial and Government Entity code assigned by DLA.
+    - name: NAICS
+      description: >-
+        North American Industry Classification System code used in federal
+        procurement.
+    - name: Bureau Code
+      description: >-
+        OMB Circular A-11 bureau code used in federal data.json files.
+    - name: Program Code
+      description: >-
+        OMB Federal Program Inventory program identifier.
+
+  protocols:
+    - name: CKAN Action API
+      description: >-
+        JSON-RPC-style API used by data.gov and many other open-data portals.
+    - name: Socrata Open Data API (SODA)
+      description: >-
+        Read/write JSON API with SoQL query language. Underlies federal
+        (data.cdc.gov, healthdata.gov), state, and city open-data portals.
+    - name: DCAT-US 1.1
+      description: >-
+        Federal metadata profile of W3C DCAT used in data.json catalogs.
+    - name: data.json
+      description: >-
+        Project Open Data v1.1 catalog file every federal agency publishes at
+        /data.json.
+    - name: api.data.gov
+      description: >-
+        GSA's API key + rate-limit gateway shared across federal agencies.
+    - name: ArcGIS Hub
+      description: >-
+        Esri-hosted open-data hub used by many federal, state, and local
+        agencies for geospatial publication.
+    - name: SOAP
+      description: >-
+        Still used by legacy USPS, IRS Modernized e-File, and some state DMV
+        systems.
+    - name: OGC API / WMS / WFS
+      description: >-
+        OGC web services for geospatial data — common at USGS, NOAA, EPA,
+        and BLM.
+
+  formats:
+    - name: CSV
+      description: Most common government open-data format.
+    - name: JSON
+      description: Used by every modern API and increasingly by bulk publishers.
+    - name: GeoJSON
+      description: Standard geospatial JSON; default at ArcGIS Hub and CKAN.
+    - name: Shapefile
+      description: Legacy Esri vector format still ubiquitous in agency GIS.
+    - name: KML / KMZ
+      description: Google-derived geo format used in mapping releases.
+    - name: XML
+      description: Used by USPS Web Tools, IRS e-File, GovInfo packages.
+    - name: PDF
+      description: Default for human-readable agency reports and reports of record.
+    - name: NIEM
+      description: National Information Exchange Model — used in justice / public-safety / immigration data exchanges.
+    - name: FHIR
+      description: HL7 FHIR — used at CMS, ONC, and VA for health-information exchange.
+    - name: GTFS
+      description: General Transit Feed Specification — used by transit agencies for schedule / vehicle data.
+
+capability:
+  description: >-
+    Architectural and governance concepts that shape how public-sector data
+    and APIs are produced, governed, and consumed.
+
+  levels:
+    - name: Federal
+      description: U.S. national government — cabinet departments, independent agencies, GSEs.
+    - name: State
+      description: 50 states plus D.C. and territories.
+    - name: Tribal
+      description: 574 federally recognized tribal governments.
+    - name: County
+      description: U.S. counties / parishes / boroughs.
+    - name: Municipal
+      description: Cities, towns, villages.
+    - name: Special District
+      description: Single-purpose units (school, water, transit, hospital).
+
+  branches:
+    - name: Executive
+      description: Agencies under the President and cabinet secretaries.
+    - name: Legislative
+      description: Congress, OGE, GAO, CBO, Library of Congress, GPO, AOC.
+    - name: Judicial
+      description: Federal courts, Administrative Office of the U.S. Courts (PACER), Sentencing Commission.
+
+  governance:
+    - name: Open Government Data Act of 2018
+      description: >-
+        Title II of the Foundations for Evidence-Based Policymaking Act. Requires
+        federal agencies to publish information online as open data.
+    - name: DATA Act of 2014
+      description: >-
+        Digital Accountability and Transparency Act. Underpins
+        USAspending.gov.
+    - name: Foundations for Evidence-Based Policymaking Act of 2018
+      description: >-
+        Establishes Chief Data Officers at federal agencies and requires
+        data.json catalogs.
+    - name: Federal Register Act
+      description: >-
+        Requires publication of regulatory documents in the Federal Register.
+    - name: Administrative Procedure Act
+      description: >-
+        Governs notice-and-comment rulemaking workflows that flow through
+        Regulations.gov.
+    - name: FOIA
+      description: >-
+        Freedom of Information Act. Each agency operates an eFOIA portal.
+    - name: Project Open Data
+      description: >-
+        OMB / GSA initiative defining DCAT-US 1.1 and the /data.json catalog
+        pattern.
+
+  vendors:
+    - name: Tyler Technologies
+      description: Largest U.S. SLG vendor. Owns Socrata as the Data and Insights division since 2018.
+    - name: OpenGov
+      description: ERP / budgeting / permitting / procurement cloud for SLG.
+    - name: Granicus
+      description: Citizen-engagement, agenda management, public-records platform for SLG.
+    - name: Accela
+      description: Permitting and licensing platform for SLG.
+    - name: NIC / Tyler NIC
+      description: Government payment processing and digital-services prime, acquired by Tyler in 2021.
+    - name: Esri
+      description: Dominant GIS vendor; ArcGIS Hub powers many open-data portals.
+    - name: Salesforce
+      description: Underlies many federal CRM / case-management portals (e.g. APHIS, Login.gov adjacent).
+    - name: AWS / Azure / GCP
+      description: Federal-cloud hyperscalers under FedRAMP authorization.
+
+  civic_tech:
+    - name: OpenStates / Plural Policy
+      description: State legislative data API and scraper pipeline.
+    - name: GovTrack
+      description: Long-running tracker of Congress; bulk data widely reused.
+    - name: Open Civic Data
+      description: Specifications and OCD-IDs for political geographies and civic objects.
+    - name: Code for America
+      description: Civic-tech nonprofit; produces 18F-collaborated tooling and the GetCalFresh / SafetyNet portfolio.
+    - name: Sunlight Foundation (legacy)
+      description: Now wound down, but its OpenStates / Influence Explorer / Sunlight Labs lineage runs through many current civic-tech projects.
+
+  personas:
+    - name: Chief Data Officer
+      description: Federal CDO required by the Evidence Act; runs the agency data.json and data strategy.
+    - name: Open Data Steward
+      description: Maintains a specific dataset; named in DCAT-US contactPoint.
+    - name: Compliance Officer
+      description: Submits and tracks regulatory comments and procurement filings.
+    - name: Procurement Specialist
+      description: Uses SAM.gov, USAspending.gov, and FPDS to monitor opportunities and awards.
+    - name: Legislative Analyst
+      description: Uses Congress.gov, OpenStates, GovTrack to track bills and votes.
+    - name: Civic Hacker
+      description: Volunteer / nonprofit developer building tools on open civic data.
+    - name: GovTech Vendor
+      description: Commercial integrator selling into state and local government.
+
+  workflows:
+    - name: Notice and Comment
+      description: >-
+        Agency publishes a Proposed Rule, opens a comment period on
+        Regulations.gov, reviews comments, issues a Final Rule.
+    - name: Procurement Cycle
+      description: >-
+        SAM.gov opportunity posted -> entity submits proposal -> award
+        reported -> reflected on USAspending.gov.
+    - name: Bill Tracking
+      description: >-
+        Introduction -> committee markup -> floor vote -> chamber crossover
+        -> conference -> enactment, surfaced via Congress.gov / OpenStates.
+    - name: Open Data Publication
+      description: >-
+        Dataset registered in DCAT-US 1.1 data.json -> harvested by data.gov
+        -> exposed via CKAN search.
+    - name: FOIA Request
+      description: >-
+        Requester submits to agency eFOIA portal -> request triaged ->
+        records released or withheld with citations.
+
+agencies_indexed:
+  - source: API Evangelist Federal Agencies Roundup
+    url: https://apievangelist.com/2026/05/05/a-roundup-of-us-federal-agencies-and-their-apis/
+    count: 211
+    description: Cabinet departments, independent agencies, bureaus, commissions, inspectors general, research labs, and museums.
+
+platforms:
+  - name: api.data.gov
+    url: https://api.data.gov
+  - name: data.gov
+    url: https://www.data.gov
+  - name: catalog.data.gov
+    url: https://catalog.data.gov
+  - name: Regulations.gov
+    url: https://www.regulations.gov
+  - name: Federal Register
+    url: https://www.federalregister.gov
+  - name: GovInfo
+    url: https://www.govinfo.gov
+  - name: SAM.gov
+    url: https://sam.gov
+  - name: USAspending.gov
+    url: https://www.usaspending.gov
+  - name: Congress.gov
+    url: https://api.congress.gov
+  - name: api.weather.gov
+    url: https://api.weather.gov
+  - name: api.nasa.gov
+    url: https://api.nasa.gov
+  - name: Treasury Fiscal Data
+    url: https://fiscaldata.treasury.gov
+  - name: Census Data API
+    url: https://api.census.gov/data
+  - name: Bureau of Economic Analysis
+    url: https://www.bea.gov/tools/
+  - name: FEC openFEC
+    url: https://api.open.fec.gov
+  - name: Open Civic Data
+    url: https://opencivicdata.readthedocs.io
+  - name: OpenStates / Plural Policy
+    url: https://openstates.org
+  - name: GovTrack
+    url: https://www.govtrack.us
+
+standards:
+  - name: DCAT-US 1.1
+    url: https://resources.data.gov/resources/dcat-us/
+  - name: Project Open Data Metadata Schema
+    url: https://resources.data.gov/schemas/dcat-us/v1.1/
+  - name: Open Civic Data Division Identifiers
+    url: https://github.com/opencivicdata/ocd-division-ids
+  - name: CKAN Action API
+    url: https://docs.ckan.org/en/latest/api/index.html
+  - name: Socrata SODA
+    url: https://dev.socrata.com
+  - name: NIEM
+    url: https://www.niem.gov
+  - name: GTFS
+    url: https://gtfs.org
+  - name: FHIR
+    url: https://www.hl7.org/fhir/

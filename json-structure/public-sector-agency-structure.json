@@ -1,0 +1,24 @@
+{
+  "name": "PublicSectorAgency",
+  "description": "Flattened structural view of a government agency record at federal / state / tribal / county / municipal / special-district level.",
+  "fields": [
+    { "name": "id", "type": "string", "required": true, "description": "Stable URI / OCD-ID / homepage URL." },
+    { "name": "name", "type": "string", "required": true, "description": "Official agency name." },
+    { "name": "shortName", "type": "string", "required": false, "description": "Official abbreviation (GSA, FEC, USDA, NASA)." },
+    { "name": "alternateNames", "type": "array<string>", "required": false, "description": "Other or historical names." },
+    { "name": "level", "type": "string", "required": true, "description": "federal | state | territorial | tribal | county | municipal | special-district | international." },
+    { "name": "country", "type": "string", "required": true, "description": "ISO 3166-1 alpha-2 country code." },
+    { "name": "jurisdiction.ocdId", "type": "string", "required": false, "description": "Open Civic Data Division Identifier." },
+    { "name": "jurisdiction.name", "type": "string", "required": false, "description": "Human-readable jurisdiction." },
+    { "name": "jurisdiction.state", "type": "string", "required": false, "description": "USPS two-letter state code." },
+    { "name": "parentAgency", "type": "string", "required": false, "description": "ID / URL of parent agency." },
+    { "name": "mission", "type": "string", "required": false, "description": "Statutory mission statement." },
+    { "name": "url", "type": "string", "required": false, "description": "Official homepage." },
+    { "name": "developerPortalUrl", "type": "string", "required": false, "description": "Developer / API portal URL." },
+    { "name": "dataPortalUrl", "type": "string", "required": false, "description": "Open-data portal URL." },
+    { "name": "foiaUrl", "type": "string", "required": false, "description": "FOIA request portal." },
+    { "name": "apis", "type": "array<object>", "required": false, "description": "Public-facing programmatic surfaces. Each {name, url, type, authMethod}." },
+    { "name": "githubOrg", "type": "string", "required": false, "description": "Official GitHub organization URL." },
+    { "name": "statutoryAuthority", "type": "array<string>", "required": false, "description": "Statutes (Open Government Data Act 2018, DATA Act 2014, etc)." }
+  ]
+}

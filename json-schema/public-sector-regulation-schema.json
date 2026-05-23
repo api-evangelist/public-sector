@@ -1,0 +1,127 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/public-sector/json-schema/public-sector-regulation-schema.json",
+  "title": "PublicSectorRegulation",
+  "description": "A government regulatory document — a notice of proposed rulemaking (NPRM), final rule, supporting/related material, or other Federal Register / state-register document. Designed to round-trip with the Regulations.gov v4 API document model and with the Federal Register API document model.",
+  "type": "object",
+  "required": ["id", "documentType", "title", "agency"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Stable identifier. Regulations.gov uses a document ID like 'EPA-HQ-OAR-2024-0001-0042'; Federal Register uses a document number like '2025-12345'."
+    },
+    "documentType": {
+      "type": "string",
+      "enum": ["Notice", "Proposed Rule", "Rule", "Presidential Document", "Supporting & Related Material", "Other"],
+      "description": "Federal Register / Regulations.gov document type."
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Document title."
+    },
+    "abstract": {
+      "type": "string",
+      "description": "Short summary describing the regulatory action."
+    },
+    "agency": {
+      "type": "object",
+      "required": ["name"],
+      "description": "Issuing agency.",
+      "properties": {
+        "name": { "type": "string" },
+        "shortName": { "type": "string" },
+        "url": { "type": "string", "format": "uri" },
+        "parentAgency": { "type": "string" }
+      }
+    },
+    "docketId": {
+      "type": "string",
+      "description": "Regulations.gov docket identifier the document belongs to (e.g. 'EPA-HQ-OAR-2024-0001')."
+    },
+    "rin": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[A-Z0-9]{4}$",
+      "description": "Regulatory Identifier Number assigned in the Unified Agenda."
+    },
+    "frDocNum": {
+      "type": "string",
+      "description": "Federal Register document number (e.g. '2025-12345')."
+    },
+    "citation": {
+      "type": "string",
+      "description": "Federal Register citation (e.g. '90 FR 12345')."
+    },
+    "publicationDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Date published in the Federal Register."
+    },
+    "effectiveDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Date the rule takes effect."
+    },
+    "commentStartDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Start of the public comment period (for Proposed Rules / Notices that solicit comment)."
+    },
+    "commentEndDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Close of the public comment period."
+    },
+    "cfrReferences": {
+      "type": "array",
+      "description": "Code of Federal Regulations sections affected.",
+      "items": {
+        "type": "object",
+        "required": ["title"],
+        "properties": {
+          "title": { "type": "integer", "minimum": 1, "maximum": 50, "description": "CFR Title (1-50)." },
+          "part": { "type": "string", "description": "CFR Part." },
+          "section": { "type": "string", "description": "CFR Section." }
+        }
+      }
+    },
+    "topics": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Federal Register subject topics."
+    },
+    "htmlUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "HTML rendering on federalregister.gov."
+    },
+    "pdfUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "PDF rendering."
+    },
+    "regulationsGovUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "Regulations.gov canonical URL for the document (where comments are accepted)."
+    },
+    "commentCount": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Number of public comments received on Regulations.gov."
+    },
+    "attachments": {
+      "type": "array",
+      "description": "Supporting materials attached to the document.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": { "type": "string" },
+          "url": { "type": "string", "format": "uri" },
+          "mediaType": { "type": "string" }
+        }
+      }
+    }
+  },
+  "additionalProperties": true
+}
