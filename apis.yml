@@ -61,7 +61,7 @@ apis:
     url: https://api.data.gov
   - type: Documentation
     url: https://api.data.gov/docs/
-  - type: SignUp
+  - type: Signup
     url: https://api.data.gov/signup/
   - type: GitHubOrganization
     url: https://github.com/18F
@@ -385,7 +385,7 @@ apis:
     url: https://www.census.gov/data/developers.html
   - type: Catalog
     url: https://api.census.gov/data.html
-  - type: SignUp
+  - type: Signup
     url: https://api.census.gov/data/key_signup.html
   - type: GitHubOrganization
     url: https://github.com/uscensusbureau
@@ -604,11 +604,11 @@ artifacts:
   url: ./json-ld/public-sector-context.jsonld
 - type: Vocabulary
   url: ./vocabulary/public-sector-vocabulary.yml
-- type: Example
+- type: Examples
   url: ./examples/public-sector-agency-example.json
-- type: Example
+- type: Examples
   url: ./examples/public-sector-dataset-example.json
-- type: Example
+- type: Examples
   url: ./examples/public-sector-regulation-example.json
 
 include: []
