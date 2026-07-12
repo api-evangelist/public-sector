@@ -617,3 +617,6 @@ maintainers:
 - FN: Kin Lane
   email: info@apievangelist.com
   url: https://apievangelist.com
+common:
+- type: DomainSecurity
+  url: security/public-sector-domain-security.yml
