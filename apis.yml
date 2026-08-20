@@ -35,6 +35,18 @@ tags:
 - Public Sector
 - Government
 - Federal
+- States
+- Local
+- Civic Tech
+- Open Data
+- Regulations
+- Procurement
+- Open Government
+- Topic
+tags_raw:
+- Public Sector
+- Government
+- Federal
 - State
 - Local
 - Civic Tech
@@ -62,6 +74,12 @@ apis:
   humanURL: https://api.data.gov
   baseURL: https://api.data.gov
   tags:
+  - Federal
+  - API Gateway
+  - GSA
+  - APIKeys
+  - Rate Limiting
+  tags_raw:
   - Federal
   - API Gateway
   - GSA
@@ -431,6 +449,12 @@ apis:
   humanURL: https://openstates.org
   baseURL: https://v3.openstates.org
   tags:
+  - States
+  - Civic Tech
+  - Legislative
+  - Bills
+  - Plural Policy
+  tags_raw:
   - State
   - Civic Tech
   - Legislative
@@ -510,6 +534,13 @@ apis:
   humanURL: https://dev.socrata.com
   baseURL: https://{domain}/resource/{datasetId}.json
   tags:
+  - States
+  - Local
+  - Federal
+  - Open Data
+  - Socrata
+  - Tyler Technologies
+  tags_raw:
   - State
   - Local
   - Federal
@@ -540,6 +571,13 @@ apis:
     majority of state and county-level government IT in the U.S.
   humanURL: https://www.tylertech.com
   tags:
+  - States
+  - Local
+  - Vendor
+  - Courts
+  - ERP
+  - Public Safety
+  tags_raw:
   - State
   - Local
   - Vendor
@@ -563,6 +601,14 @@ apis:
     districts. The OpenGov ERP Cloud is the company's flagship offering.
   humanURL: https://www.opengov.com
   tags:
+  - States
+  - Local
+  - Vendor
+  - ERP
+  - Budgeting
+  - Permitting
+  - Procurement
+  tags_raw:
   - State
   - Local
   - Vendor
