@@ -19,6 +19,18 @@ description: >-
   publishers.
 url: https://github.com/api-evangelist/public-sector
 humanURL: https://github.com/api-evangelist/public-sector
+deliveryModel:
+  model: unknown
+  open_source: unknown
+  commercial: true
+  callable_host: false
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - pricing
+  - repository-unlicensed
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: unknown
@@ -675,5 +687,13 @@ maintainers:
   email: info@apievangelist.com
   url: https://apievangelist.com
 common:
+- type: IssueTracker
+  url: https://github.com/18F/api.data.gov/issues
+- type: SecurityPolicy
+  url: https://github.com/GSA/api.data.gov/blob/main/SECURITY.md
+- type: CodeOfConduct
+  url: https://github.com/GSA/api.data.gov/blob/main/.github/CODE_OF_CONDUCT.md
+- type: ContributionGuide
+  url: https://github.com/GSA/api.data.gov/blob/main/CONTRIBUTING.md
 - type: DomainSecurity
   url: security/public-sector-domain-security.yml
