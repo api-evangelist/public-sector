@@ -420,6 +420,12 @@ apis:
   - Census
   - Demographics
   - ACS
+  - Economics
+  tags_raw:
+  - Federal
+  - Census
+  - Demographics
+  - ACS
   - Economic
   properties:
   - type: Portal
