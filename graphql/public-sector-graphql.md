@@ -1,1 +1,0 @@
-# Public Sector GraphQL API

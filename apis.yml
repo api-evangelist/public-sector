@@ -109,8 +109,6 @@ apis:
   - type: GitHubRepository
     url: https://github.com/18F/api.data.gov
 
-  - url: graphql/public-sector-graphql.md
-    type: GraphQL
 - name: data.gov (CKAN catalog)
   description: >-
     The U.S. federal open data catalog at catalog.data.gov, powered by the
