@@ -20,16 +20,23 @@ description: >-
 url: https://github.com/api-evangelist/public-sector
 humanURL: https://github.com/api-evangelist/public-sector
 deliveryModel:
-  model: unknown
+  model: saas
+  license_evidence:
+    not_product:
+    - 18f/api.data.gov
+    - fecgov/openfec
+    - fedspendingtransparency/usaspending-api
+    - govtrack/congress
+    - gsa/data.gov
   open_source: unknown
   commercial: true
   callable_host: false
-  label: Delivery model not determined — needs a product licence on record
+  label: Hosted service · you call their endpoint
   confidence: low
   source:
   - pricing
-  - repository-unlicensed
-  generated: '2026-08-28'
+  - repository-not-product
+  generated: '2026-09-25'
   method: derived
 accessModel:
   pricing: unknown
@@ -649,6 +656,11 @@ apis:
     federal / state / local / civic-tech landscape.
   humanURL: https://apievangelist.com/2026/05/05/a-roundup-of-us-federal-agencies-and-their-apis/
   tags:
+  - Federal
+  - Roundup
+  - API-Evangelist
+  - Catalog
+  tags_raw:
   - Federal
   - Roundup
   - API Evangelist
