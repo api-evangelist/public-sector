@@ -64,105 +64,110 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Industry-vertical index for the **public-sector / government API landscape** across U.S. federal, state, and local levels. Catalogs the federal API gateway, the open-data catalog, the regulatory and procurement surfaces, the headline agency APIs, the state-and-local platform vendors, and the civic-tech layer — and pins them all to a shared agency / dataset / regulation data model so consumers can normalize across publishers.
+Industry-vertical index for the public-sector / government API landscape across U.S. federal, state, and local levels. Catalogs the federal API gateway api.data.gov (operated by GSA's Technology Transformation Services under the Open Government Data Act of 2018, used by 25 agencies for over 450 APIs), the catalog.data.gov CKAN metadata catalog, headline federal programmatic surfaces (Regulations.gov, Federal Register, GovInfo, SAM.gov, USAspending.gov, Treasury Fiscal Data, Congress.gov, FEC openFEC, api.weather.gov, api.nasa.gov, Census Data API, Bureau of Economic Analysis), state and local infrastructure (Socrata / Tyler Data and Insights, Tyler Technologies courts/ERP/public-safety stack, OpenGov ERP/budgeting/permitting cloud), and the civic-tech layer (OpenStates / Plural Policy, GovTrack, Open Civic Data). Cross-references Kin Lane's 2026-05-05 roundup of 211 U.S. federal agencies and their APIs on apievangelist.com. The catalog focuses on the data-schema shape of a government dataset / agency / regulation record so that civic-tech and enterprise consumers can normalize across federal, state, and local publishers.
 
-> The data-schema shape of a *government agency*, *government dataset*, and *government regulation* — wired together with a JSON-LD context that bridges DCAT-US, schema.org, and the Open Civic Data identifiers.
+**Areas:** Public Sector · Government · Federal · States · Local · Civic Tech · Open Data · Regulations · Procurement · Open Government · Topic
 
-## Cross-Reference
+## Public Sector on APIs.io
 
-This umbrella topic repo binds together the **211 U.S. federal agencies** profiled in Kin Lane's 2026-05-05 [roundup of US federal agencies and their APIs](https://apievangelist.com/2026/05/05/a-roundup-of-us-federal-agencies-and-their-apis/) — each of which has its own `api-evangelist/<agency-slug>` repo with `apis.yml`, vocabulary, and where applicable OpenAPI specs.
+Everything profiled for Public Sector is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/public-sector/](https://apis.io/providers/public-sector/)** — or go straight to one of the APIs or properties below.
 
-## What's in This Repo
+### APIs (21)
 
-| Artifact | File | Purpose |
-|---|---|---|
-| APIs Index | [apis.yml](./apis.yml) | Catalogs the 21 anchor surfaces in the public-sector landscape (federal gateway, federal catalogs, headline agency APIs, state/local platforms, civic-tech layer). |
-| Agency Schema | [json-schema/public-sector-agency-schema.json](./json-schema/public-sector-agency-schema.json) | JSON Schema for a government agency record, aligned with schema.org/GovernmentOrganization and Open Civic Data jurisdictions. |
-| Dataset Schema | [json-schema/public-sector-dataset-schema.json](./json-schema/public-sector-dataset-schema.json) | JSON Schema for a government dataset, aligned with DCAT-US 1.1 and round-trippable with CKAN `package_show`. |
-| Regulation Schema | [json-schema/public-sector-regulation-schema.json](./json-schema/public-sector-regulation-schema.json) | JSON Schema for a Federal Register / Regulations.gov document. |
-| Agency Structure | [json-structure/public-sector-agency-structure.json](./json-structure/public-sector-agency-structure.json) | Flattened structural view of the agency record. |
-| Dataset Structure | [json-structure/public-sector-dataset-structure.json](./json-structure/public-sector-dataset-structure.json) | Flattened structural view of the dataset record. |
-| Regulation Structure | [json-structure/public-sector-regulation-structure.json](./json-structure/public-sector-regulation-structure.json) | Flattened structural view of the regulation record. |
-| JSON-LD Context | [json-ld/public-sector-context.jsonld](./json-ld/public-sector-context.jsonld) | Semantic context binding the three core types to schema.org, DCAT, DCT, and Open Civic Data. |
-| Vocabulary | [vocabulary/public-sector-vocabulary.yml](./vocabulary/public-sector-vocabulary.yml) | Controlled vocabulary for entities, identifiers, protocols, formats, government levels, branches, governance statutes, vendors, civic-tech projects, personas, and workflows. |
-| Agency Example | [examples/public-sector-agency-example.json](./examples/public-sector-agency-example.json) | GSA as a worked example. |
-| Dataset Example | [examples/public-sector-dataset-example.json](./examples/public-sector-dataset-example.json) | CFPB Consumer Complaint Database as a worked example. |
-| Regulation Example | [examples/public-sector-regulation-example.json](./examples/public-sector-regulation-example.json) | An EPA oil-and-gas NSPS proposed rule as a worked example. |
+- [api.data.gov](https://apis.io/apis/public-sector/apidatagov/) — Free API management gateway operated by the U.S. General Services Administration's Technology Transformation Services. Fronts the API keys, rate limiting,…
+- [data.gov (CKAN catalog)](https://apis.io/apis/public-sector/datagov-ckan-catalog/) — The U.S. federal open data catalog at catalog.data.gov, powered by the open-source CKAN platform. The CKAN Action API at…
+- [Regulations.gov API](https://apis.io/apis/public-sector/regulationsgov-api/) — The Regulations.gov v4 REST API exposes federal regulatory dockets, documents (Proposed Rules, Rules, Supporting & Related Material, Other), and public…
+- [Federal Register API](https://apis.io/apis/public-sector/federal-register-api/) — JSON REST API for the daily Federal Register published by the Office of the Federal Register and GPO. Exposes documents (Notice, Proposed Rule, Rule,…
+- [GovInfo API](https://apis.io/apis/public-sector/govinfo-api/) — U.S. Government Publishing Office (GPO) GovInfo developer hub. The Collections API at api.govinfo.gov delivers self-describing packages of authoritative…
+- [SAM.gov APIs](https://apis.io/apis/public-sector/samgov-apis/) — System for Award Management (SAM.gov), the U.S. federal procurement and financial assistance system, exposes 11 production APIs catalogued at open.gsa.gov…
+- [USAspending.gov API](https://apis.io/apis/public-sector/usaspendinggov-api/) — The USAspending API, maintained by the U.S. Department of the Treasury, provides public access to comprehensive U.S. government spending data including…
+- [Treasury Fiscal Data API](https://apis.io/apis/public-sector/treasury-fiscal-data-api/) — Bureau of the Fiscal Service API at api.fiscaldata.treasury.gov exposing Treasury's authoritative fiscal datasets — Debt to the Penny, Monthly Treasury…
+- [Congress.gov API](https://apis.io/apis/public-sector/congressgov-api/) — The api.congress.gov REST API, maintained by the Library of Congress, exposes structured legislative data — bills, amendments, summaries, members,…
+- [FEC openFEC API](https://apis.io/apis/public-sector/fec-openfec-api/) — Federal Election Commission's openFEC REST API at api.open.fec.gov exposes campaign finance data — candidates, committees (PACs, parties, campaigns),…
+- [api.weather.gov (NOAA NWS)](https://apis.io/apis/public-sector/apiweathergov-noaa-nws/) — National Weather Service REST + JSON-LD API at api.weather.gov delivering open weather forecasts, alerts, and observations. Endpoints include…
+- [api.nasa.gov](https://apis.io/apis/public-sector/apinasagov/) — Aggregated NASA Open APIs hub at api.nasa.gov. Includes Astronomy Picture of the Day (APOD), Asteroids NeoWs, DONKI (Space Weather), Earth Imagery, EONET…
+- [Census Data API](https://apis.io/apis/public-sector/census-data-api/) — U.S. Census Bureau Data API at api.census.gov serving approximately 1,784 datasets across major survey programs — Decennial Census, American Community…
+- [Bureau of Economic Analysis (BEA) API](https://apis.io/apis/public-sector/bureau-of-economic-analysis-bea-api/) — BEA Data API exposing GDP, national income, personal income, corporate profits, international trade and investment, regional accounts, and industry…
+- [OpenStates API (Plural Policy)](https://apis.io/apis/public-sector/openstates-api-plural-policy/) — OpenStates v3 REST API at v3.openstates.org, operated by Plural Policy, providing JSON access to U.S. state legislative information — bills, people…
+- [GovTrack](https://apis.io/apis/public-sector/govtrack/) — GovTrack.us civic-tech site tracking U.S. Congress — bills, votes, members, committees, congressional districts. Originally one of the first civic-tech…
+- [Open Civic Data](https://apis.io/apis/public-sector/open-civic-data/) — Open Civic Data is a community-maintained set of specifications and shared identifiers for civic information — Open Civic Data Division Identifiers…
+- [Socrata Open Data API (Tyler Data and Insights)](https://apis.io/apis/public-sector/socrata-open-data-api-tyler-data-and-insights/) — Socrata Open Data API (SODA) is the read/write JSON API powering open data portals at federal, state, county, and city governments worldwide. Queries use…
+- [Tyler Technologies](https://apis.io/apis/public-sector/tyler-technologies/) — Largest U.S. vendor of mission-critical software to state and local government. Product portfolio spans Courts & Justice (case management, e-filing, jury…
+- [OpenGov](https://apis.io/apis/public-sector/opengov/) — OpenGov sells a cloud ERP, budgeting, financial-reporting, permitting, licensing, and procurement suite to U.S. state and local governments. Originally a…
+- [API Evangelist Federal Agencies Roundup](https://apis.io/apis/public-sector/api-evangelist-federal-agencies-roundup/) — Kin Lane's 2026-05-05 roundup at apievangelist.com indexes 211 U.S. federal agencies and their public-facing APIs, RSS feeds, open-data surfaces, and…
 
-## The Landscape
+### Published properties
 
-### Federal Gateway and Catalogs
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-- **[api.data.gov](https://api.data.gov)** — GSA Technology Transformation Services. Free API management gateway used by ~25 agencies for 450+ APIs.
-- **[data.gov](https://www.data.gov)** / **[catalog.data.gov](https://catalog.data.gov)** — CKAN-powered federal open data catalog. Action API at `/api/3/action/` for `package_search`, `package_show`, `organization_list`.
-- **[GovInfo](https://www.govinfo.gov)** — GPO authoritative publishing: bills, Federal Register, CFR, Public Laws, U.S. Courts opinions.
+#### GraphQL (1)
 
-### Federal Regulatory and Legislative
+GraphQL schemas.
 
-- **[Regulations.gov v4](https://www.regulations.gov)** — Dockets, documents, comments. `X-Api-Key` header; commenting capped at 50/min and 500/hr.
-- **[Federal Register API](https://www.federalregister.gov/developers/api/v1)** — Daily Federal Register publication. No key required for read.
-- **[Congress.gov API](https://api.congress.gov)** — Library of Congress legislative data: bills, members, committees, congressional record.
+- [Moved to /providers/public-sector/](https://apis.io/graphqls/public-sector/public-sector-graphql/)
 
-### Federal Procurement and Spending
+#### JSON Schema (3)
 
-- **[SAM.gov](https://sam.gov)** — 11 production APIs (Entity Management, Exclusions, Federal Hierarchy, Contract Opportunities, Awards, Assistance Listings, Subaward Reporting).
-- **[USAspending.gov](https://www.usaspending.gov)** — Treasury's DATA Act spending feed (contracts, grants, loans, direct payments).
-- **[Treasury Fiscal Data](https://fiscaldata.treasury.gov)** — Debt to the Penny, Monthly Treasury Statement, exchange rates.
+The data models the API reads and writes.
 
-### Federal Statistics and Science
+- [PublicSectorAgency](https://apis.io/schemas/public-sector/public-sector-agency/)
+- [PublicSectorDataset](https://apis.io/schemas/public-sector/public-sector-dataset/)
+- [PublicSectorRegulation](https://apis.io/schemas/public-sector/public-sector-regulation/)
 
-- **[Census Data API](https://api.census.gov/data)** — ~1,784 datasets across Decennial, ACS, PEP, CPS, SIPP, CBP, Economic Census.
-- **[Bureau of Economic Analysis](https://www.bea.gov/tools/)** — GDP, income, trade, regional and industry accounts.
-- **[api.weather.gov](https://api.weather.gov)** — NOAA NWS forecasts / alerts. User-Agent only; "All of the information presented via the API is intended to be open data."
-- **[api.nasa.gov](https://api.nasa.gov)** — APOD, NeoWs, DONKI, Earth, EONET, EPIC, Insight, Mars Rover, Exoplanet, Open Science Data Repository.
-- **[FEC openFEC](https://api.open.fec.gov)** — Candidates, committees, filings, contributions, disbursements.
+#### JSON Structure (3)
 
-### State and Local Platforms
+Data models expressed in JSON Structure.
 
-- **[Socrata Open Data API (Tyler Data and Insights)](https://dev.socrata.com)** — JSON + SoQL; powers federal (data.cdc.gov, healthdata.gov), state, county, and city open data portals worldwide.
-- **[Tyler Technologies](https://www.tylertech.com)** — Largest SLG vendor. Courts & Justice, ERP, Public Safety, Civic Services, Property & Assessment, K-12, Recreation, Data & Insights.
-- **[OpenGov](https://www.opengov.com)** — ERP / budgeting / financial reporting / permitting / licensing / procurement cloud for SLG.
+- [Public Sector Agency Structure](https://apis.io/json-structure/public-sector/public-sector-agency-structure/)
+- [Public Sector Dataset Structure](https://apis.io/json-structure/public-sector/public-sector-dataset-structure/)
+- [Public Sector Regulation Structure](https://apis.io/json-structure/public-sector/public-sector-regulation-structure/)
 
-### Civic-Tech Layer
+#### JSON-LD (1)
 
-- **[OpenStates / Plural Policy](https://openstates.org)** — REST v3 at `v3.openstates.org`. State bills, legislators, jurisdictions, committees, events across all 50 states.
-- **[GovTrack](https://www.govtrack.us)** — Long-running Congress tracker; bulk data downloads at `govtrack.us/data` widely reused.
-- **[Open Civic Data](https://opencivicdata.readthedocs.io)** — OCD-IDs for political geographies plus normalized civic-object models. Underlies OpenStates' scrapers and Google's Civic Information API.
+Linked-data contexts for the provider's vocabulary.
 
-## The Data Model
+- [Public Sector Context](https://apis.io/jsonld/public-sector/public-sector-context/)
 
-Three entities, three schemas, one shared JSON-LD context:
+#### Vocabulary (1)
 
-```
-PublicSectorAgency        ⊆  schema:GovernmentOrganization
-PublicSectorDataset       ⊆  dcat:Dataset                  (DCAT-US 1.1)
-PublicSectorRegulation    ⊆  schema:Legislation
-```
+The provider's domain terms, defined.
 
-Identifiers favor stable, externally maintained URIs:
+- [Public Sector Vocabulary](https://apis.io/vocabularies/public-sector/public-sector-vocabulary/)
 
-- **[Open Civic Data Division Identifiers](https://github.com/opencivicdata/ocd-division-ids)** for jurisdictions (`ocd-division/country:us/state:ca/place:los_angeles`)
-- **Regulations.gov Docket IDs** for dockets (`EPA-HQ-OAR-2024-0001`)
-- **Federal Register Document Numbers** + citations (`2026-05022` / `91 FR 21789`)
-- **OMB Bureau / Program Codes** from Project Open Data
-- **SAM.gov UEI** for federal-eligible entities
+#### Examples (3)
 
-## Governance Backbone
+Example requests and responses.
 
-This index is shaped by the statutes that compel U.S. agencies to publish APIs and data:
+- [Public Sector Agency Example](https://apis.io/examples/public-sector/public-sector-agency-example/)
+- [Public Sector Dataset Example](https://apis.io/examples/public-sector/public-sector-dataset-example/)
+- [Public Sector Regulation Example](https://apis.io/examples/public-sector/public-sector-regulation-example/)
 
-- **Open Government Data Act of 2018** — Title II of the Evidence Act; requires federal agencies to publish information as open data.
-- **DATA Act of 2014** — Standardized federal spending reporting (USAspending.gov).
-- **Foundations for Evidence-Based Policymaking Act of 2018** — Chief Data Officers; `/data.json` catalogs.
-- **Administrative Procedure Act** — Notice-and-comment rulemaking on Regulations.gov.
-- **FOIA** — Per-agency eFOIA portals.
+#### Governance rules (1)
 
-## Out of Scope (Captured Elsewhere)
+Spectral rulesets for the provider's contracts.
 
-- Per-agency profiles live in their own repos under [github.com/api-evangelist](https://github.com/api-evangelist) — see the [2026-05-05 federal agencies roundup](https://apievangelist.com/2026/05/05/a-roundup-of-us-federal-agencies-and-their-apis/) for the full 211-agency index.
-- Per-vendor OpenAPI specs for Tyler / Socrata / OpenGov live in the vendor repos, not this topic repo.
-- Pricing, rate-limits, and FinOps artifacts are skipped — the public-sector topic is not a single commercial provider.
+- [Public Sector — jsonschema rules](https://apis.io/rules/public-sector/public-sector-jsonschema-spectral-rules/)
 
-## License
+#### Security (1)
 
-Public domain (US Government default for federal data; this index itself is published as open content).
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Public Sector Domain Security](https://apis.io/security/public-sector/public-sector-domain-security/)
+
+## API Evangelist rating
+
+**Unrated** — no public website could be reached for this company, so there was almost nothing to measure and nothing a reader could check.
+
+This is not a score of zero. No rating is published for this company. If that is wrong because something public exists that we missed, say so on this repository or email [info@apievangelist.com](mailto:info@apievangelist.com) and it will be re-run — free, and no justification needed.
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Public Sector: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/public-sector/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
